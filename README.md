@@ -1,0 +1,1 @@
+Js test from bootcamp + hacker rank
