@@ -1,38 +1,50 @@
-// // 1
-// // data
-// const data = [
-//     {
-//         name: "Joe",
-//         age: 23,
-//         job: "Artist",
-//         hoby: "Drawing",
-//     },
-//     {
-//         name: "Michael",
-//         age: 21,
-//         job: "Engineer",
-//         hoby: "Fishing",
-//     },
-//     {
-//         name: "Jenifer",
-//         age: 22,
-//         job: "Dentist",
-//         hoby: "Gardening",
-//     },
-// ]
+// 1
 
-// // {
-// //     header: ["number", "name", "age", "job", "hoby"],
-// //     data: data
-// // }
+const checkPalindrom = (data) =>{
+    data = data.toLowerCase()
+    data = data.replace(/[^a-zA-Z0-9]/g, '')
+    let reverse = data.split('').reverse().join('')
+    if(data === reverse){
+        return true
+    }
+    else return false
+}
 
-// // Jawaban
-// // write your code here
+console.log(checkPalindrom("kasur"))
+console.log(checkPalindrom("radar"))
 
-// console.log(table.data)
+// CARA LOOPING
+const checkPalindrom2 = (data) =>{
+    data = data.toLowerCase()
+    data = data.replace(/[^a-zA-Z0-9]/g, '')
+    //disini kita pake spread buat akses kata di data
+    //baru di reverse sama join biar dia menghindari error
+    //kalau datanya ada spasi gitu
+    let reverse = [...data].reverse().join('')
 
-var myArray = [1, 2, 3];
+    for(let value of data){
+        if(value !== reverse[data.indexOf(value)]){
+            return false
+        }
+    }
+    return true
+}
 
-myArray.unshift(4);
 
-console.log(myArray);
+console.log(checkPalindrom2("kasur"))
+console.log(checkPalindrom2("radar"))
+
+// 2
+const number = (busStops) => {
+    let result = 0
+    for( let value of busStops ){
+        let index1 = value[0]
+        let index2 = value[1]
+        result += index1 - index2
+    }
+    return result
+}
+
+console.log(number([[10, 0], [3, 5], [5, 8]]));
+console.log(number([[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]]));
+console.log(number([[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]]));
